@@ -24,6 +24,7 @@ AUTHOR_FEED_RSS = None
 # Blogroll
 LINKS = (
     ('Github', 'https://github.com/igordertigor'),
+    ('LinkedIn', 'https://www.linkedin.com/in/ingofruend/'),
  )
 
 # Social widget
