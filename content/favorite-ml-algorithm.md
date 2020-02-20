@@ -1,10 +1,11 @@
 Title: "What's your favourite machine learning algorithm?"
-Date: 2020-02-03 12:08
+Date: 2020-02-20 14:14
 Category: Machine Learning
 Tags: Machine Learning, Algorithm, Kernel, Feature
 Slug: favourite-ml-algorithm
 Authors: Ingo Fruend
 Summary: Is there really anything like that? Rather some really nice ideas.
+status: published
 
 According to my friend Kyle Becker, this interview question seems to throw off quite a few candidates.
 Honestly, it threw me off as well: I don't think I have a "favourite machine learning algorithm", I typically feel that the best solution is largely dictated by the problem to be solved.
