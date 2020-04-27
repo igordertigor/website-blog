@@ -1,0 +1,16 @@
+cd webseiten
+cd main
+put -r output/tag
+put output/index.html
+put -r output/pages
+put -r output/author
+put -r output/images
+put output/tags.html
+put output/authors.html
+put output/archives.html
+put output/favourite-ml-algorithm.html
+put -r output/category
+put output/vim-vs-emacs.html
+put -r output/theme
+put output/categories.html
+exit
