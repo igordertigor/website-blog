@@ -1,0 +1,5 @@
+.doit.db
+.venv3/
+__pycache__
+output
+finished
