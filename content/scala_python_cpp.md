@@ -28,7 +28,7 @@ Things that are really cool about python
 Unfortunately, some things are also really annoying about python.
 
 - The *global interpreter lock* (GIL) is certainly the first thing that comes to mind. Yes, some libraries manage to get around it, but for the most part, the GIL means that it isn't really easy to make full use of even fairly standard hardware (i.e. dual core processors). Yes, one could use [separate processes](https://docs.python.org/3/library/multiprocessing.html) or even more [heavyweight solutions](http://www.celeryproject.org/), but it is always either ugly or feels like overkill.
-- Unit tests need to cover a lot of cases of the form "What happens if I call this function with the wrong type". Often, these tests don't really test any meaningful application logic, they just make sure that things behave reasonable if users are a little stupid.
+- Unit tests need to cover a lot of cases of the form "What happens if I call this function with the wrong type". Often, these tests don't really test any meaningful application logic, they just make sure that things behave reasonable if users don't really pay attention.
 
 # C++
 
@@ -42,7 +42,7 @@ Yet, C++ has a bunch of disadvantages.
 
 - Verbosity: There is so much stuff that you need to specify that the code ultimately becomes more difficult to understand than it would have to be.
 - There are different categories of code files. This is probably hard to grasp for people coming from a more high-level language: C++ has two types of code files. On the one hand, there are "header" files, that (loosely) contain only the function names (a bit more) and on the other hand, there are proper code files that typically contain the implementations of these functions.
-- Manual memory management and pointer arithmetic. C++ requires that the programmer allocates memory for variables before using them *and later de-allocates that memory* when the variable is no longer needed. Related to that, C++ can access variables either by their name or by their memory location. In fact, memory locations are stored in a special type of variables called pointers. Experienced C++-programmers do calculations even with pointers to pointers. Although this pointer business helps with the performance (see above), it is a great opportunity to make mistages&mdash;really subtle mistakes that don't immediately break everything, but lurk in the background and hurt you right when you think you have it all under control.
+- Manual memory management and pointer arithmetic. C++ requires that the programmer allocates memory for variables before using them *and later de-allocates that memory* when the variable is no longer needed. Related to that, C++ can access variables either by their name or by their memory location. In fact, memory locations are stored in a special type of variables called pointers. Experienced C++-programmers do calculations even with pointers to pointers. Although this pointer business helps with the performance (see above), it is a great opportunity to make mistakes&mdash;really subtle mistakes that don't immediately break everything, but lurk in the background and hurt you right when you think you have it all under control.
 - Unit tests beyond the most basic level are a pain.
 
 # Scala
@@ -57,7 +57,7 @@ I agree, scala is really awesome. In a way, it brings together the performance a
 
 Turns out, the disadvantages of scala didn't immediately come to me. Here are some
 
-- Lightweight projects are clumsy&mdash;a few lines of code that you put into your `PATH` to do something useful&mdash;are a not so great with scala. But maybe it wasn't designed for that anyway.
+- Lightweight projects are clumsy&mdash;a few lines of code that you put into your `PATH` to do something useful&mdash;are not quite so quick and easy with scala. But maybe it wasn't designed for that anyway.
 - Interactive coding is a little clumpsy. Yes, there is a [repl](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop), but nobody would really try to solve problems in it (unlike in [ipython](https://ipython.org/)).
 
 # Conclusion
