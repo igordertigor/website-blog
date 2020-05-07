@@ -5,6 +5,7 @@ Tags: Elm, Front-End, Functional Programming
 Slug: functional-programming-with-elm
 Authors: Ingo Fruend
 Summary: Functional, type save, elegant, ... and it all works in a browser.
+status: published
 
 When it comes to adding dynamic functionality to websites, [javascript](https://www.javascript.com/) is the number one technology.
 And javascript is not as bad as its reputation (or as it used to be).
