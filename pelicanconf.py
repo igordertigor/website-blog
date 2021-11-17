@@ -8,7 +8,7 @@ SITEURL = 'http://ingofruend.net'
 
 PATH = 'content'
 
-TIMEZONE = 'America/Toronto'
+TIMEZONE = 'Europe/Berlin'
 
 DEFAULT_LANG = 'en'
 
