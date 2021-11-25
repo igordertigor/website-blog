@@ -79,5 +79,10 @@ publish:
 ftp_upload: publish
 	lftp ftp://$(FTP_USER)@$(FTP_HOST) -e "mirror -R $(OUTPUTDIR) $(FTP_TARGET_DIR) ; quit"
 
+mac_upload: publish
+	# This might need more work
+	sftp ftp://$(FTP_USER)@$(FTP_HOST) -e "mirror -R $(OUTPUTDIR) $(FTP_TARGET_DIR) ; quit"
+
+
 
 .PHONY: html help clean regenerate serve serve-global devserver publish ftp_upload
