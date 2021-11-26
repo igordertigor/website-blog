@@ -23,6 +23,7 @@ def task_build():
 
 
 def get_ftp_user():
+    return "368370-ftp"
     lpass = subprocess.check_output(
         'lpass show 3566222442604292113',
         shell=True).decode()
