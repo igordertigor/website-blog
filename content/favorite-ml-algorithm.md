@@ -1,6 +1,6 @@
 Title: "What's your favourite machine learning algorithm?"
 Date: 2020-02-20 14:14
-Category: Machine Learning
+Category: Data Science
 Tags: Machine Learning, Algorithm, Kernel, Feature
 Slug: favourite-ml-algorithm
 Authors: Ingo Fruend
