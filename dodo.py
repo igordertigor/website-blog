@@ -23,11 +23,7 @@ def task_build():
 
 
 def get_ftp_user():
-    lpass = subprocess.check_output(
-        'lpass show 3566222442604292113',
-        shell=True).decode()
-    m = re.search(r'User:\s(.*)$', lpass, re.MULTILINE)
-    return m.group(1)
+    return "368370-ftp"
 
 
 def write_upload_ftp():

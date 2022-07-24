@@ -5,7 +5,7 @@ Tags: Technology, Startups
 Slug: lessons-for-startups
 Authors: Ingo Fruend
 Summary: A technology perspective
-status: draft
+status: published
 
 Last winter, I read the book [The Lean Startup](http://theleanstartup.com) by Eric Ries.
 In that book, Ries defines a startup as an instution creating innovation in an uncertain, high-risk environment.
@@ -18,9 +18,9 @@ As good as this experience as a product owner was, as clear is it to me that I e
 How can an engineering team contribute to stretching out a startup's runway?
 I'm explicitly addressing this question from an engineering perspective, but I hope that the essence of these thoughts is accessible to people with a product or business background as well.
 
-One of the key points here is something that Eric Ries already emphasizes: Although we often thing of runway as a time (typically in months), it makes much more sense to thing of runway as the number of iterations that can still be done on the product.
+One of the key points here is something that Eric Ries already emphasizes: Although we often think of runway as a time (typically in months), it makes much more sense to define runway as the number of iterations that can still be done on the product.
 This is useful, because a key challenge for an early stage startup is to find its product niche.
-Most ideas for what that nice could be, are wrong.
+Most ideas for what that niche could be, are wrong.
 Ries therefore suggests to (i) make sure that (at least some) customers interact with the product as early as possible and (ii) that changes to the product can be done as quickly as possible.
 Point (i) is mostly in the domain of the product owner/manager and ensures that there is a way to actually learn from customers, point (ii) ensures that we can try out as much as possible before the money runs out.
 I belive that point (ii) is the responsibility of the engineering team.
@@ -35,7 +35,7 @@ There is a strong temptation to simply go ahead and write something that "just w
 Resist that temptation.
 Get everybody together and discuss which component needs to interact with which component.
 What are the minimal points of contact.
-If you find out after several [pivots](https://fi.co/insight/what-pivoting-is-when-to-pivot-and-how-to-pivot-effectively) you find out that part of your infrastructure can't support your new usecase, then it is much easier to exchange that part of infrastructure if it has only very few points of contact to the rest.
+If you find out after several [pivots](https://fi.co/insight/what-pivoting-is-when-to-pivot-and-how-to-pivot-effectively) that part of your infrastructure can't support your new usecase, then it is much easier to exchange that part of infrastructure if it has only very few points of contact to the rest.
 
 APIs are particularly important for databases.
 It is tempting to simply reach into the database and get out whatever you need.
@@ -45,7 +45,7 @@ However, your database should be adaptable.
 Pivots usually mean that some bit of information from your database becomes more (or less) important than before.
 You may want to add columns to tables or maybe add new tables.
 So you can't apply that change easily and end up wasting a lot of energy and time making it work somehow.
-Importantly, that problem becomes more severy with time, as the database grows.
+Importantly, this problem becomes more severe with time, as the database grows.
 By starting with the API, you ensure that there are no "shortcuts".
 You may still evolve the API, but that would usually be something that follows a conscious decision and that involves all stakeholders of the API.
 
@@ -66,7 +66,7 @@ This makes production deployments appear daunting.
 It often feels as if your time would be better invested creating new code.
 To get used to regular deployments, it can be a good strategy to schedule a fixed time at which a release happens.
 For example, you might agree to make a new release at least once per week, for example on Thursdays.
-That doesn't mean you can't also deploy on Monday, but it means that you still go through the deploment process on Thursday.
+That doesn't mean you can't also deploy on Monday, but it means that you still go through the deployment process on Thursday.
 Just make it a habit.
 
 ## Continuous Integration / Continuos Delivery
@@ -77,7 +77,7 @@ Continuous Integration and Continuous Delivery (short CI/CD) refers to a number 
 CI/CD systems usually trigger running a number of automatic tests, building a new version of the software and then replacing the running software by the new version.
 Making this process fully automatic, including a comprehensive suite of automatic tests, is a lot of work.
 Focus on getting most of it to work, maybe cover the most critical cases by a few high level tests.
-You might have deployments to development automatic, but deployments to production still needing one or two (not more) manual steps.
+You might have deployments to your development environment work automatically, but deployments to the production environment still needing one or two (not more) manual steps.
 Don't go over board here.
 Set up the basic system and evolve it over time like you evolve your other systems too.
 
@@ -90,7 +90,7 @@ If you regularly deploy to the production system, you will either need to build 
 Feature flags provide ways to control access to incomplete features in the production system.
 That means that (for example) a developer can access the incomplete feature, but regular user will not see the feature.
 Do not go through the hassle of developing feature flags inhouse.
-Instead, sign of for a service such as [configcat](https://configcat.com), [launchdarkly](https://launchdarkly.com), or [split.io](https://www.split.io).
+Instead, sign up for a service such as [configcat](https://configcat.com), [launchdarkly](https://launchdarkly.com), or [split.io](https://www.split.io).
 All of them have an initial free tier but offer slightly different features in that free tier.
 Once set up, feature flags usually also support other things like gradual rollouts by country or just to a small percentage of users.
 
@@ -137,11 +137,11 @@ MLOps systems usually have three components:
     But maybe, you first want to try it out on a limited set of customers, before having a biased or badly generalizing version of the model be released to all customers.
 3. Systems for *dataset and model versioning*.
 
-The most important feature here is point 1.
+In the beginning, the most important feature here is point 1.
 It is possible to write your own tracking system (e.g. just copy logs to an s3 bucket), but tools like [mlflow](https://mlflow.org) or [wandb](https://wandb.ai/site) are much more powerful and usually also offer nice tools for interactively visualizing the results of multiple experiments together.
 
 Points 2 and 3 are somewhat debatable.
-Although they address important points, most solutions that I'm aware of are kind of narrow in scope.
+Although they address important points, most solutions that I'm aware of are kind of narrow in scope (except for the approach that [DVC](http://dvc.org) is taking, which will be covered in a different article).
 You will have to decide yourself if they help in your particular usecase.
 Typically, you can add these points later on, after you already have used a tracking system for a while.
 
