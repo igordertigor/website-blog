@@ -149,3 +149,9 @@ With this, you can access all the contents of your config file as `config.modelt
 
 1. Only the parameters specified in the `Config`-class are actually available inside your code. So parameter dependencies are made explicit through the declarations in the `Config`-class. This makes it quite easy to keep the dependencies in the `dvc.yaml` file up to date.
 2. The resulting parameters are guaranteed to have the exact types that you expect. So there is no risk that somebody puts for example `learning_rate: auto` into their config file if your code doesn't explicitly declare that it can handle this setting. This way, your code will fail very fast if something unexpected is coming from your config file.
+
+# Conclusion
+
+In this article, I argued that data science projects differ from classical software projects, because there are more factors that can make them change. Specifically, these factors are code structure, algorithmic logic, and data. I sketched a useful structure for data science projects and illustrated how to use DVC to track different versions of such a project.
+
+I provide a cookiecutter template for a data science project at [igordertigor/templates](https://github.com/igordertigor/templates) on github.
