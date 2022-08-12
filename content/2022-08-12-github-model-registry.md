@@ -1,5 +1,5 @@
 Title: Building a model registry in github
-Date: 2022-08-15 22:55
+Date: 2022-08-12 12:00
 Category: Data Science
 Tags: Machine Learning, Data Science, MLOps
 Slug: github-model-registry
