@@ -1,5 +1,5 @@
 Title: Version control for data science projects
-Date: 2022-08-07 09:40
+Date: 2022-08-12 12:00
 Category: Data Science
 Tags: Data Science, Git, Version Control, DVC
 Slug: version-control-for-data-science
