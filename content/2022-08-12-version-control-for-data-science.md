@@ -1,11 +1,11 @@
 Title: Version control for data science projects
-Date: 2022-08-12 12:00
+Date: 2022-08-16 11:00
 Category: Data Science
 Tags: Data Science, Git, Version Control, DVC
 Slug: version-control-for-data-science
 Authors: Ingo Fruend
 Summary: Data science projects consist of code, data and algorithmic ideas. If these three factors play together there is a tendency that your projects ends up being a total mess.
-status: draft
+status: published
 
 Data science projects depend on three factors
 
@@ -13,7 +13,7 @@ Data science projects depend on three factors
 2. The *choice of algorithm*. There is [no generally "best" algorithm for everything](https://en.wikipedia.org/wiki/No_free_lunch_theorem). Usually, it isn't even possible to decide in advance which algorithm might be best or even just really good. In addition, there may be additional considerations beyond prediction accuracy, such as run time, memory demands, etc. This means that a typical data science project will change the entire algorithm being implemented a few times in its course.
 3. Finally, there is *code* that implements the data cleaning and the chosen algorithm(s). As we work on a project, the code changes, we may add new functionality, logging, fix bugs, maybe even add an entirely new algorithm.
 
-This differs from classical software projects where a good algorithm can usually be chosen in advance and where we mostly care about the flow of data rather than the actual content of the data[^1]. Together, this makes data science projects much more prone to drift off into a chaotic mess: There is some (almonst) abandoned code to read data from an old format that we might want to revisit again, there are a few hundred lines implementing an algorithm that turned out to be useless, but we want to keep it for reference. There might be an algorithm that works fairly well, but somewhere half way, we want to write out an intermediate result and add a little additional transformation of an auxiliary variable.
+This differs from classical software projects where a good algorithm can usually be chosen in advance and where we mostly care about the flow of data rather than the actual content of the data (Skiena, 2017). Together, this makes data science projects much more prone to drift off into a chaotic mess: There is some (almonst) abandoned code to read data from an old format that we might want to revisit again, there are a few hundred lines implementing an algorithm that turned out to be useless, but we want to keep it for reference. There might be an algorithm that works fairly well, but somewhere half way, we want to write out an intermediate result and add a little additional transformation of an auxiliary variable.
 
 In classical software projects, there is a tendency to run into a mess as well and the solution is (i) discipline and (ii) a version control system such as [git](https://git-scm.com). For data science projects, discipline plays an important role as well. But while git is great for managing versions of code or small text and configuration files, git is pretty bad at tracking really big data files or changes in algorithmic choices. This is where a tool like data version control (short [DVC](http://dvc.org)) comes into play.
 
@@ -79,7 +79,7 @@ To go back to an old version, you first checkout the respective git-commit with 
 
 ## Project structure
 
-I find it useful to use a different structure for DVC projects than I would use for (e.g. a python package). This is a fairly subjective choice and something else might work well for you. Just keep in mind: It helps to have the same structure for all your projects or all of your team's projects.
+I find it useful to use a different structure for DVC projects than I would use for (e.g.) a python package. This is a fairly subjective choice and something else might work well for you. Just keep in mind: It helps to have the same structure for all your projects or all of your team's projects.
 
 My DVC projects usually have the following folder structure:
 ```
@@ -94,21 +94,21 @@ params.yaml
 dvc.yaml
 ```
 (I'm omitting operational folders like `.git/` or `.dvc/` here).
-I have separate subfolders inside the `data/` folder. Data science pipelines typically transform one dataset to another to yet another. The `data/` folder partly reflects this by having separate subfolders for different stages. Usually, the raw folder doesn't change much (unless I want to re-train on a new dataset) but the other folders may change over time. The `data/final/` subfolder contains datasets that are "ready to be consumed"; in some cases, that may mean that they've had enough preprocessing to be visualized or that they are ready for training a model (although notably many modern approaches like neural networks would train on raw or almost raw data).
+I have separate subfolders inside the `data/` folder. Data science pipelines typically transform one dataset to another to yet another. The `data/` folder partly reflects this by having separate subfolders for different stages. Usually, the raw folder doesn't change much (unless I want to re-train on an entirely new dataset) but the other folders may change over time. The `data/final/` subfolder contains datasets that are "ready to be consumed"; in some cases, that may mean that they've had enough preprocessing to be visualized or that they are ready for training a model (although notably many modern approaches like neural networks would train on raw or almost raw data).
 
-The `src/` folder contains the actual analysis code. I have two subfolders `scripts/` and `visualizations/` here. Let's start with the first. Here, I have scripts that do separate steps of analysis. I try to keep these scripts as self contained as possible (that way I don't need to re-run everything just because I wanted to change a small thing in the last step of a pipeline). Furthermore, I design these scripts as data transformations: Their input is a dataset (or csv file or ...) and their output is another dataset (or csv file or ...). For example, a training/validation/test script would take a dataset as input and write three separate index files into that dataset. This strategy makes intermediate steps become persistant on my hard disk (or for larger files in some remote storage), which in turn means that their versions can be tracked by DVC.
+The `src/` folder contains the actual analysis code. I have two subfolders `scripts/` and `visualizations/` here. Let's start with the first. Here, I have scripts that do separate steps of analysis. I try to keep these scripts as self-contained as possible (that way I don't need to re-run everything just because I wanted to change a small thing in the last step of a pipeline). Furthermore, I design these scripts as data transformations: Their input is a dataset (or csv file or ...) and their output is another dataset (or csv file or ...). For example, a training/validation/test split would take a dataset as input and write three separate index files into that dataset. This strategy makes intermediate steps become persistant on my hard disk (or for larger files in some remote storage), which in turn means that their versions can be tracked by DVC.
 
 DVC has really good support for [vega-lite](https://vega.github.io/vega-lite/). For a couple of standard scenarios (learning rate, confusion matrix, ...) there are already templates that come with DVC. If you only use those, you will be fine without the `visualizations/` folder. However, I find that most of these pre-packaged visualizations are build with a very specific usecase in mind (neural network training), but they don't really go very deep and they often don't support more complex or high dimensional data exploration scenarios. DVC allows you to add [your own vega-lite templates](https://dvc.org/doc/command-reference/plots) and I often find that useful. These custom templates are supposed to be stored in `.dvc/plots/` but I keep forgetting how that folder is supposed to be called and I find that my plot templates change in a similar way as other code, so it makes more sense to me to have them in a location that clearly says "this is code".
 
-I reserve the `out/` folder for the outputs of my scripts. There are some exceptions though. If a script creates a new proper new dataset (i.e. adding a precomputed transformation to the full image net dataset), then the output would go to `data/`. However, that's a fairly rare case so most outputs go to `out/`. Keep in mind any file can be tracked by DVC or git. So the decision what you want to use to track a file should not determine where you save it.
+I reserve the `out/` folder for the outputs of my scripts. These would normally be something like metrics or checkpoints as a lot of output also goes to the `data/` folder. Keep in mind any file can be tracked by DVC or git. So the decision what you want to use to track a file should not determine where you save it.
 
 There are also two files, `params.yaml` and `dvc.yaml` that I will talk about in the next section.
 
 ## Reproducable runs
 
-Many data science projects consist of multiple scripts that need to be run in a particular order. For example, data cleaning should usually run before model training. Keeping these steps separate makes sense, because each of these steps may take a long time and it is usually a good thing to stop at an intermediate result and store everything to disk. However, this can also be a source of errors: If you changed something in the data cleaning script but forget to run it, you may end up with very confusing errors&mdash;or end up with incorrect results. Furthermore, this makes things complicated for somebody else entering your project: They may not even know the correct order to reproduce your scripts. Putting the order into a README file addresses the second point, but not the first. Furthermore, the README might get out of sync with the actual order of running scripts.
+Many data science projects consist of multiple scripts that need to be run in a particular order. For example, data cleaning should usually run before model training. Keeping these steps separate makes sense, because each of these steps may take a long time and it is usually a good thing to stop at an intermediate result and store everything to disk. However, this can also be a source of errors: If you changed something in the data cleaning script but forget to re-run it, you may end up with very confusing errors&mdash;or end up with incorrect results. Furthermore, this makes things complicated for somebody else entering your project: They may not even know the correct order to reproduce your scripts. Putting the order into a README file addresses the second point, but not the first. Furthermore, the README might get out of sync with the actual order of running scripts.
 
-DVC provides a better way of specifying the order in which different scripts should run. You simply specify which script depends on what and then you can all your scripts with
+DVC provides a better way of specifying the order in which different scripts should run. You simply specify which script depends on what and then you call all your scripts with
 ```
 dvc repro
 ```
@@ -118,14 +118,14 @@ But how would you set up things so that `dvc repro` works? How do you specify wh
 ```
 dvc run [options] python src/scripts/myscript.py
 ```
-Instead of `[options]` you would enter a number of options are you just leave this part blank and fill it later by hand. The `dvc run` command can take options to specify dependencies on other files (`-d`) or specify output files (`-o`) or other things. If you type `dvc run --help` you will see a full list of all the options. I usually just specify a few on the first run and then edit the `dvc.yaml` file by hand.
+Instead of `[options]` you would enter a number of options are you just leave this part blank and fill it later by hand. The `dvc run` command can take options to specify dependencies on other files (`-d`) or specify output files (`-o`) or other things. If you type `dvc run --help` you will see a full list of all the options. I usually just specify a few on the first run and then edit the `dvc.yaml` file by hand to add the dependencies and outputs. Importantly, `dvc run` does nothing else than editing the `dvc.yaml` file. So you really do the exact same thing if you edit the file by hand.
 
 
 ## Experiments
 
 When we build models or play with different ways to build features from our raw data, we usually try out a lot of different things. It's easy to loose track of what we tried and what the result of each attempt was. DVC can track these experiments for you; you mosty need to replace `dvc repro` with `dvc exp run` (after [a little bit of setup](https://dvc.org/doc/user-guide/experiment-management)). One advantage of DVC over similar tools is that you can first run your experiments and then pick the ones that you want to commit, much like you can select changes that go into a git commit.
 
-One common form experimentation playing with multiple parameters. DVC supports a central parameter file (or multiple ones). The default parameter file is called `params.yaml` and pipeline steps can depend on individual parameters in this file rather than the whole file. As a consequence, you don't need to re-run the whole pipeine just because one parameter in `params.yaml` changed.
+One common form experimentation is playing with multiple parameters. DVC supports a central parameter file (or multiple ones). The default parameter file is called `params.yaml` and pipeline steps can depend on individual parameters in this file rather than the whole file. As a consequence, you don't need to re-run the whole pipeline just because one parameter in `params.yaml` changed.
 
 Using a yaml configuration makes it easy to read parameters in your script. For example, you could read them with [PyYaml](https://pyyaml.org/wiki/PyYAMLDocumentation). A common tool for reading parameter files from python code is [hydra](https://hydra.cc). However, I don't quite like hydra, because it is fairly implicit about the parameters that a script depends on&mdash;with hydra any script could technically access all parameters. A more explicit way of dealing with parameter files is to use [pydantic](https://pydantic-docs.helpmanual.io) like this:
 ```python
@@ -158,4 +158,4 @@ I provide a cookiecutter template for a data science project at [igordertigor/te
 
 
 # References
-[^1] Skiena, S (2017). *The Data Science Design Manual*. Springer. I'm mostly referring the the first chapter here.
+- Skiena, S (2017). *The Data Science Design Manual*. Springer. I'm mostly referring the the first chapter here.
