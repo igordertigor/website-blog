@@ -37,7 +37,7 @@ Inside that repository, run
 ```
   $ mlem init
 ```
-this command will create a folder `.mlem`, which contains a single file `.mlem/config.yaml`.
+this command will create a file `.mlem.yaml`, which contains configuration for mlem.
 Commit that file to the git repository and push to github and you're done.
 Your model registry is now ready to use.
 
@@ -55,7 +55,7 @@ In order to avoid copying models to the mode registry (and thus storing the twic
         --rev v1 \\
         linear_regression cost_predictor
 ```
-The result of this is a new file `.mlem/links/cost_predictor.mlem` inside the model registry. We could now make a pull request to request merging this link to the master branch.
+The result of this is a new file `cost_predictor.mlem` inside the model registry. We could now make a pull request to request merging this link to the master branch.
 
 There are a few things to notice here
 
