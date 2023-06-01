@@ -1,7 +1,5 @@
-import re
 import os
 import glob
-import subprocess
 
 from doit import create_after
 

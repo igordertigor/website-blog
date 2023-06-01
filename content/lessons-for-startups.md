@@ -95,7 +95,7 @@ All of them have an initial free tier but offer slightly different features in t
 Once set up, feature flags usually also support other things like gradual rollouts by country or just to a small percentage of users.
 
 
-## Containers
+## Infrastructure
 
 Many real-world computer systems are distributed: Multiple computers work together to support a company's products.
 For example, there might be one computer that runs a database, another computer that serves a website and a third computer that provides backend computations for the website.
@@ -104,10 +104,15 @@ Managing this kind of infrastructure is a specialist job and takes up a lot of t
 Containers are small, lightweight "quasi virtual machines".
 Using containers, instead of actual computers, a distributed system can be abstracted from the actual hardware.
 This means, that a developer can prepare a container locally on their laptop and test it rigorously.
-Once set up, a system like [kubernetes](https://kubernetes.io) can orchestrate running the full distributed system of of the exact same containers that the developer tested on their laptop.
-In fact, the developer could have even tested a small version the full distributed system on their laptop running a local kubernetes version called [minikube](https://minikube.sigs.k8s.io/docs/start/).
-Having tested everything before the actual deployment reduces the risk of actual production deployments and thereby accelerates the development cycle.
-Furthermore, it is much easier to set up a complete CI/CD pipeline based on kubernetes than it would be with real computers (virtual machines in the cloud are kind of in between).
+
+*EDIT*: Here I used to advocate [kubernetes](https://kubernetes.io).
+Although I still believe that kubernetes is an impressive tool, I find it too large for a small startup.
+A much better alternative are often fully managed, serverless offerings from the usual cloud vendors.
+For example [Google Cloud Run](https://cloud.google.com/run) or [AWS Fargate](https://aws.amazon.com/fargate/) can run containers in the cloud&mdash;much like kubernetes, but without having to maintain a kubernetes cluster.
+If you feel that docker containers are too much overhead for you, you could try out [Google Cloud Functions](https://cloud.google.com/functions)/[AWS Lambda](https://aws.amazon.com/lambda/) or [Google App Engine](https://cloud.google.com/functions)/[AWS Beanstalk](https://aws.amazon.com/elasticbeanstalk/).
+All of these will run code in the cloud without the notion of an explicit container or even of infrastructure in the first place.
+If the infrastructure is abstracted away/managed by your cloud provider, that means that you don't need to waste person hours handling kubernetes or event virtual machines.
+
 
 # Considerations about databases
 
@@ -144,6 +149,9 @@ Points 2 and 3 are somewhat debatable.
 Although they address important points, most solutions that I'm aware of are kind of narrow in scope (except for the approach that [DVC](http://dvc.org) is taking, which will be covered in a different article).
 You will have to decide yourself if they help in your particular usecase.
 Typically, you can add these points later on, after you already have used a tracking system for a while.
+
+*Edit*: After writing this blog post, I wrote two other blog posts that expand upon this topic.
+The first is about [using dvc for dataset and model versioning as well as experiment tracking]({filename}/2022-08-16-version-control-for-data-science.md), the second is somewhat addressing the [topic of model deployment by combining tools like mlem and gto]({filename}/2022-08-26-github-model-registry.md).
 
 # Summary
 
