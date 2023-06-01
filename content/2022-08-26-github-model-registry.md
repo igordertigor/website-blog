@@ -7,6 +7,8 @@ Authors: Ingo Fruend
 Summary: Data science projects can be messy, however we don't want to carry that mess over to our production environments.
 status: published
 
+> Note: This post refers to an outdated version of mlem which is not compatible with the current mlem version.
+
 Data science projects can be [messy]({filename}/content/2022-08-07-version-control-for-data-science.md).
 We try out something here, just to find out that it didn't really help.
 Then we try out another thing and maybe it does improve performance a little bit.
