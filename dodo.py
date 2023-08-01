@@ -1,7 +1,5 @@
-import re
 import os
 import glob
-import subprocess
 
 from doit import create_after
 
@@ -51,10 +49,15 @@ def task_upload():
     files = list_output_dir()
     print(files)
     write_upload_ftp()
+
+    options = [
+        '-vvv',
+        '-o StrictHostKeyChecking=no',
+    ]
     return {
         'file_dep': files,
         'actions': [
-            'sftp -b upload.sftp {}@ftp.ingofruend.net'
+            f'sftp {" ".join(options)} -b upload.sftp {}@ftp.ingofruend.net'
             .format(get_ftp_user())
         ],
     }
