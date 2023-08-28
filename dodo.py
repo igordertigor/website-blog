@@ -57,7 +57,7 @@ def task_upload():
     return {
         'file_dep': files,
         'actions': [
-            f'sftp {" ".join(options)} -b upload.sftp {}@ftp.ingofruend.net'
-            .format(get_ftp_user())
+            'sftp {} -b upload.sftp {}@ftp.ingofruend.net'
+            .format(" ".join(options), get_ftp_user())
         ],
     }
