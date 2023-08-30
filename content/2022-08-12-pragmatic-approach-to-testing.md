@@ -1,7 +1,7 @@
 Title: A pragmatic approach to software testing
 Date: 2022-08-12 11:29
 Category: Programming
-Tags: Test Driven Development,Unit Tests
+Tags: Test Driven Development, Unit Tests
 Slug: pragmatic-approach-to-testing
 Authors: Ingo Fruend
 Summary: Writing tests for your software project is a lot of work. Although well tested software is typically more robust and better structured, overly thorough testing slow down your iteration speed.
