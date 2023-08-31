@@ -9,7 +9,7 @@ status: draft
 
 The other day, a colleague asked me about a good testing strategy for a new service he was developing.
 In general, I find that tests are extremely important.
-They give confidence when making changes and tend to push me into writing code that has less dependencies and is easier to understand.
+They give confidence when making changes and tend to push me into writing code that has fewer dependencies and is easier to understand.
 However, writing good tests that really cover all use cases and all branches through your code is a lot of work.
 Is there a pragmatic approach that doesn't sacrifice speedy delivery and fast iterations for the sake of dense test coverage?
 I think there is.
@@ -29,15 +29,15 @@ In the following, I will address these six points in a bit more detail and recom
 # The path to the initial release
 
 The standard way to run tests in python is by using [tox](https://tox.wiki).
-Tox is a test runner for python and it supports a whole lot of different options, such as running different kinds of tests, with different python versions and different other packages installed.
+Tox is a test runner for python, and it supports a lot of different options, such as running different kinds of tests, with different python versions and different other packages installed.
 Tox is configured through a file `tox.ini` and I will in the following occasionally refer to this file.
 However, the details of how this is set up can be found on the [tox website](https://tox.wiki).
-I'm also providing a very opinionated [cookiecutter](https://www.cookiecutter.io) template on [github](https://github.com/igordertigor/templates) that contains (amoung others) a useful `tox.ini` file.
+I'm also providing a very opinionated [cookiecutter](https://www.cookiecutter.io) template on [GitHub](https://github.com/igordertigor/templates) that contains (among others) a useful `tox.ini` file.
 
 ## High-level scenarios
 
 Usually, we have one or two common use cases in mind when we write a piece of software.
-While we work on an initial release, we ideally want to check these use cases regularly and not write code that doesn't help with these use cases. For example, we might want a command line tool to be usable in one particular way or we want to ensure that a neural network quantization library maintains prediction accuracy of one or two fixed networks. For an application programming interface (API) that we want to provide through a webserver (e.g. [REST](https://en.wikipedia.org/wiki/Representational_state_transfer), [GraphQL](https://graphql.org), [JsonRPC](https://www.jsonrpc.org), ...), we may have a few common usage flows that we want to test. In any case, these high-level tests should be *specified in code* and there should be a *clear indication of success of failure*. Taken together, these two criteria mean that these high-level test scenarios can be run repeatedly by just calling the respective piece of code.
+While we work on an initial release, we ideally want to check these use cases regularly and not write code that doesn't help with these use cases. For example, we might want a command line tool to be usable in one particular way, or we want to ensure that a neural network quantization library maintains prediction accuracy of one or two fixed networks. For an application programming interface (API) that we want to provide through a web server (e.g. [REST](https://en.wikipedia.org/wiki/Representational_state_transfer), [GraphQL](https://graphql.org), [JsonRPC](https://www.jsonrpc.org), ...), we may have a few common usage flows that we want to test. In any case, these high-level tests should be *specified in code* and there should be a *clear indication of success of failure*. Taken together, these two criteria mean that these high-level test scenarios can be run repeatedly by just calling the respective piece of code.
 
 High-level tests of a library or an API can be written in [pytest](https://docs.pytest.org/), but it is good practice to mark these tests in some way.
 You would need to define these markers in your [`pytest.ini`](https://docs.pytest.org/en/7.1.x/reference/customize.html?highlight=configure).
@@ -46,16 +46,16 @@ Some people also refer to these tests as "integration" tests, but I feel that th
 However, if the service you are testing depends on a running database, scenario tests should actually start a real database locally.
 If your service you are testing involves contact with data or machine learning, scenario tests should use a real dataset (potentially down-sampled).
 Runtime isn't super critical here.
-It's fine if your scenario tests take a bit of time to run&mdash;as long as they are deterministic and capture a real usecase with sufficient detail.
+It's fine if your scenario tests take a bit of time to run&mdash;as long as they are deterministic and capture a real use case with sufficient detail.
 It's a good idea to capture the full setup of your scenario tests inside your `tox.ini`, but to keep them out of the `tox.envlist` (the list of tests that run automatically when you run tox).
 This way, slow running scenario tests won't discourage you from running your other tests all the time.
 
-Writing scenario tests for a library or an API can usually be done within the programming language your are targeting&mdash;after they are expected to be called in code.
+Writing scenario tests for a library or an API can usually be done within the programming language you are targeting&mdash;after they are expected to be called in code.
 For command line tools, this is different.
 These tools are expected to be (predominantly) called in an interactive session.
 Often, the output that these tools produce on the console is particularly important.
 A good tool to specify test scenarios for command line tools is [cram](https://bitheap.org/cram/).
-With cram, you can simulate a user's input on the command line and test the tool's output in well defined scenarios.
+With cram, you can simulate a user's input on the command line and test the tool's output in well-defined scenarios.
 
 ## Unit tests if you are unsure
 
@@ -70,13 +70,13 @@ We may use an interactive python session for this or (for compiled languages) wr
 Keep these ad-hoc tests and directly enter them in your suite of unit tests.
 This way, you can run them automatically.
 
-Unit tests should be fast to run and you should trigger them with a single short command.
+Unit tests should be fast to run, and you should trigger them with a single short command.
 If you develop in python, it's a good idea to use [tox](https://tox.wiki) to run your tests (short command) and to configure tox to have your unit test suite inside the `tox.envlist` for at least one python version.
 
 
 ## Use code checkers
 
-For most programming languages, there is a bunch of tools to validate your code without running or compiling it.
+For most programming languages, there are a bunch of tools to validate your code without running or compiling it.
 For example with python, there are tools like [flake8]() or [pylint]() that ensure that your code is (i) syntactically correct and reasonably well formatted.
 In addition, there are static type checkers like [mypy]() that verify that functions are called with the arguments for which they are intended.
 These tools are great (if configured correctly).
@@ -84,7 +84,7 @@ They run within less than a second and catch most of the really stupid errors&md
 
 In addition to code *checkers*, there are also code *formatters*.
 Examples for these are [black](https://black.readthedocs.io/en/stable/index.html) or [autoflake8](https://github.com/fsouza/autoflake8).
-Many people love these tools and I've had heated discussions regarding their usefulness.
+Many people love these tools, and I've had heated discussions regarding their usefulness.
 Personally, I find that part of code formatting is a matter of expressing intent and something where I try to make conscious decisions.
 Such a decision may be that I want to *not* follow the style guide in some place in order to more clearly express what I'm doing.
 Assuming that others who work in the same code base do the same, I don't want someone else to obscure these intentional breaks with style guides.
@@ -100,4 +100,4 @@ Assuming that others who work in the same code base do the same, I don't want so
 7. If a new usage scenario comes up, test it out in a "scenario" test.
 
 
-Regularly do TDD katas to improve your skills at writing well capsulated code that can be tested in isolation
+Regularly do TDD katas to improve your skills at writing well encapsulated code that can be tested in isolation
