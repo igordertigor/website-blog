@@ -1,3 +1,5 @@
 pelican
 markdown
 doit
+typer
+pydantic
