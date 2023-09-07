@@ -35,6 +35,16 @@ Tox is configured through a file `tox.ini` and I will in the following occasiona
 However, the details of how this is set up can be found on the [tox website](https://tox.wiki).
 I'm also providing a very opinionated [cookiecutter](https://www.cookiecutter.io) template on [GitHub](https://github.com/igordertigor/templates) that contains (among others) a useful `tox.ini` file.
 
+## Automatic tests
+
+In particular, when there are almost no users, it can be tempting to start out by just doing some manual testing and then shipping a new release and hoping that nothing breaks.
+Resist the temptation!
+If your tests don't run automatically, you have to assume that they don't run.
+If the testing procedure is not written in code, you have to assume that steps are skipped.
+Services like [GitHub actions](https://docs.github.com/en/actions) or [travis](https://www.travis-ci.com) allow running test code in response to triggers such as opening a pull request or merging code to certain branches.
+They are almost always worth the money.
+
+
 ## High-level scenarios
 
 Usually, we have one or two common use cases in mind when we write a piece of software.
@@ -97,13 +107,18 @@ However, auto-formatting will not detect missing imports or syntactic errors&mda
 
 ## Few mocks
 
-1. Are there high-level scenarios that I want to cover? Can these be used as a guideline? Runtime isn't so critical here. (workflow/scenario). These should use an actual database and interact with the system in the way you intend a user to interact with it (i.e. localhost-server or cram tests)
-2. If you write a component that you aren't quite sure about or that you need to play with in an interactive session to get right, put that down as a unit test ~> 20-30% line coverage
-3. Use code checkers (mypy and flake8) from the beginning (why no autoformatting? Hettinger talk)
-4. Be careful with mocks (files, dates, randomness, other systems can be risky, better write your code to not need them).
-5. Your overall system should now be workable. An initial (pre-)release can be dared.
-6. Once everything is working kind-of ok-ish use a coverage report to guide you to unit-testing all those corner cases. Maybe even switch on branch coverage at this time (coverage.py/pytest-coverage, hypothesis) Goal here: Think about every line. It's fine to decide that this really isn't meaningful to test and add a `pragma: no cover` marker. Often that's better than a mock-orgy.
-7. If a new usage scenario comes up, test it out in a "scenario" test.
+A "mock" or "mockup" is a class that allows you to replace parts of your system by an empty shell. For example, the mockup of a database could be just a class that returns predefined values when called, so that you can check if the rest of your system responds to these values correctly.
+In your scenario tests, you aim to test realistic interactions with your code on a high-level.
+Mocks will take away from the realism of these tests.
+It is therefore a good idea to use them as little as possible.
+Instead, you can often use techniques such as [dependency injection](https://en.wikipedia.org/wiki/Dependency_injection) to avoid a lot of mock objects.
+Ideally, you wouldn't need any mocks, but it might make sense to replace non-essential external services by a mockup.
+A typical example would be third party services that handle [feature flags](https://martinfowler.com/articles/feature-toggles.html) or [performance monitoring](https://sentry.io/welcome/).
 
+# Conclusion
 
-Regularly do TDD katas to improve your skills at writing well encapsulated code that can be tested in isolation
+I described a core testing strategy for an early, fast moving software product.
+My focus here was on static code analysis and high-level automatic tests.
+This isn't supposed to imply that there is no value in denser test coverage or that one shouldn't strive for higher test coverage.
+However, given the choice between features and tests, most companies will go for features.
+My attempt here is to point out somewhat of a minimum level of automatic testing that still supports the strong feature focus that is usually needed to get a software product off the ground.
