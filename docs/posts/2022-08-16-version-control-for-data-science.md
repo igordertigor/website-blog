@@ -13,18 +13,9 @@ tags:
   - Version Control
 ---
 
-<!--
-Title: Version control for data science projects
-Date: 2022-08-16 11:00
-Category: Data Science
-Tags: Data Science, Git, Version Control, DVC, Versioning
-Slug: version-control-for-data-science
-Authors: Ingo Fruend
-Summary: Data science projects consist of code, data and algorithmic ideas. If these three factors play together there is a tendency that your projects ends up being a total mess.
-status: published
--->
+# Version control for data science projects
 
-Data sciens projects have a lot of moving parts&mdash;code, data, configuration, hypotheses, modeling assumptions, ... All of these change at different time scales and with different impact on what and how much needs to be stored. As a result, data science projects often diverge into some sort of chaos. This doesn't have to be the case!
+Data science projects have a lot of moving parts&mdash;code, data, configuration, hypotheses, modeling assumptions, ... All of these change at different time scales and with different impact on what and how much needs to be stored. As a result, data science projects often diverge into some sort of chaos. This doesn't have to be the case!
 
 <!-- more -->
 
