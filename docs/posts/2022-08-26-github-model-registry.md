@@ -12,7 +12,7 @@ authors:
 ---
 # Building a model registry in GitHub
 
-Data science projects can be [messy]({filename}/content/2022-08-07-version-control-for-data-science.md).
+Data science projects can be [messy](2022-08-16-version-control-for-data-science.md).
 We try out something here, just to find out that it didn't really help.
 Then we try out another thing, and maybe it does improve performance a little bit.
 Most of the code that we write in these projects needs to run once and can be forgotten afterwards.
