@@ -1,0 +1,15 @@
+site_name: Ingo Fruend
+theme:
+  name: material
+  features:
+    - navigation.sections
+plugins:
+  - offline
+  - blog:
+      blog_dir: ./
+      authors_file: authors.yml
+  - search
+  - tags
+nav:
+  - index.md
+  - about.md
