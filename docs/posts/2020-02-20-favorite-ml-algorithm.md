@@ -7,7 +7,7 @@ categories:
 tags:
   - Machine Learning
 authors: [ingo]
-cover_image: /images/covers/2020-02-20-favorite-ml-algorithm.jpg
+cover_image: 2020-02-20-favorite-ml-algorithm.jpg
 ---
 # "What's your favourite machine learning algorithm?"
 

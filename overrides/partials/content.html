@@ -9,7 +9,7 @@
   <h1>{{ page.title | d(config.site_name, true)}}</h1>
 {% endif %}
 {% if page.meta.cover_image %}
-<img src="{{ page.meta.cover_image }}" alt="Cover image">
+<img src="/images/covers/{{ page.meta.cover_image }}" alt="Cover image">
 {% endif %}
 {{ page.content }}
 {% if page.meta and (

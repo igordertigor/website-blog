@@ -7,7 +7,7 @@ tags:
   - Versioning
 authos:
   - ingo
-cover_image: /images/covers/2023-08-30-semantic-versioning-and-semv.jpg
+cover_image: 2023-08-30-semantic-versioning-and-semv.jpg
 ---
 # Semantic versioning and semv
 

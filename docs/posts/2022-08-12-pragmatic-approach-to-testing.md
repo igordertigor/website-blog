@@ -7,7 +7,7 @@ tags:
   - test driven development
 authors:
   - ingo
-cover_image: /images/covers/2022-08-12-pragmatic-approach-to-testing.jpg
+cover_image: 2022-08-12-pragmatic-approach-to-testing.jpg
 ---
 # A pragmatic approach to software testing
 

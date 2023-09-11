@@ -8,7 +8,7 @@ tags:
   - Teams
   - Social Interaction
 authors: [ingo]
-cover_image: /images/covers/2023-07-19-objectivity.jpg
+cover_image: 2023-07-19-objectivity.jpg
 ---
 # Rethink objectivity!
 
