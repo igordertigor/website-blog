@@ -4,6 +4,14 @@ theme:
   features:
     - navigation.sections
   custom_dir: overrides
+  palette:
+    primary: white
+    accent: cyan
+  font:
+    text:
+      PT Serif
+      # Libre Baskerville
+  logo: images/logo.png
 plugins:
   - offline
   - blog:
