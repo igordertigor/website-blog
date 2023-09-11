@@ -5,7 +5,7 @@ categories:
   - Tech
 tags:
   - Versioning
-authos:
+authors:
   - ingo
 cover_image: 2023-08-30-semantic-versioning-and-semv.jpg
 ---
