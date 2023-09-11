@@ -3,6 +3,7 @@ theme:
   name: material
   features:
     - navigation.sections
+  custom_dir: overrides
 plugins:
   - offline
   - blog:

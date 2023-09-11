@@ -11,6 +11,7 @@ tags:
   - Versioning
   - DVC
   - Version Control
+cover_image: /images/2022-08-16-version-control-for-data-science.jpg
 ---
 
 # Version control for data science projects

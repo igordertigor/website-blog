@@ -9,6 +9,7 @@ tags:
   - Data Science
 authors:
   - ingo
+cover_image: /images/2022-08-26-github-model-registry.jpg
 ---
 # Building a model registry in GitHub
 
