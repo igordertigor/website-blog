@@ -1,3 +1,4 @@
+annotated-types==0.5.0
 Babel==2.12.1
 certifi==2023.7.22
 charset-normalizer==3.2.0
@@ -16,6 +17,8 @@ packaging==23.1
 paginate==0.5.6
 pathspec==0.11.2
 platformdirs==3.10.0
+pydantic==2.3.0
+pydantic_core==2.6.3
 Pygments==2.16.1
 pymdown-extensions==10.3
 python-dateutil==2.8.2
@@ -24,5 +27,7 @@ pyyaml_env_tag==0.1
 regex==2023.8.8
 requests==2.31.0
 six==1.16.0
+typer==0.9.0
+typing_extensions==4.7.1
 urllib3==2.0.4
 watchdog==3.0.0

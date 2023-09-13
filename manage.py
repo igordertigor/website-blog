@@ -2,6 +2,8 @@ from typing import Iterator
 from datetime import datetime
 from itertools import groupby
 from enum import Enum
+import re
+import yaml
 from typer import Typer
 from pydantic import BaseModel
 import glob
@@ -15,7 +17,7 @@ class PostStatus(str, Enum):
 class MetaPost(BaseModel):
     title: str
     date: datetime
-    category: str
+    categories: list[str]
     status: PostStatus
     filename: str
     tags: list[str] = []
@@ -43,17 +45,20 @@ def list_categories():
 
 
 def read_blog_meta() -> Iterator[MetaPost]:
-    for filename in glob.glob('content/*.md'):
+    for filename in glob.glob('docs/posts/*.md'):
         content =  {'filename': filename}
         with open(filename) as f:
-            for line in f:
-                if len(line.strip()):
-                    key, value = line.split(':', 1)
-                    content[key.lower()] = value.strip()
-                else:
-                    break
-        if 'tags' in content:
-            content['tags'] = [tag.strip() for tag in content['tags'].split(',')]
+            meta = re.search('---(.*)---.*?# (.*?)\n', f.read(), re.DOTALL)
+            if meta:
+                content = {**content, **yaml.safe_load(meta.group(1))}
+                content['title'] = meta.group(2)
+            else:
+                print(f'No match for {filename}')
+        draft = content.pop('draft', False)
+        if draft:
+            content['status'] = PostStatus.draft
+        else:
+            content['status'] = PostStatus.published
         yield MetaPost(**content)
 
 if __name__ == '__main__':
