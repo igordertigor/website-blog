@@ -1,5 +1,4 @@
 mkdocs
 mkdocs-material>=9.2.0b3
-mkdocs-meta-plugin
 mkdocs-blog-plugin
 mkdocs-plugin-tags
