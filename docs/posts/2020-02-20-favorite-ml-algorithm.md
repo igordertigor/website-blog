@@ -8,6 +8,7 @@ tags:
   - Machine Learning
 authors: [ingo]
 cover_image: 2020-02-20-favorite-ml-algorithm.jpg
+comments: true
 ---
 # "What's your favourite machine learning algorithm?"
 
@@ -53,6 +54,8 @@ They typically work surprisingly well.
 Obviously there are a ton of other really cool ideas in recent machine learning that could have been in this list.
 Close candidates are certainly reinforcement learning, causal inference, adversarial learning, or convolutions on graphs.
 Although I acknowledge that these are powerful concepts that really profoundly influenced the way I think about data and about learning from data, they would not be the first thing that comes to my mind in response to the question "What's your favourite machine learning algorithm?".
+
+What is your favourite ML algorithm? What would have been your favourite a few years ago? Did I miss something? Let me know in the comments section!
 
 <!-- acknowledge Kyle -->
 <!-- personal perspective and by no means complete -->

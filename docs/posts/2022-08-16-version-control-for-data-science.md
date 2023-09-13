@@ -12,6 +12,7 @@ tags:
   - DVC
   - Version Control
 cover_image: 2022-08-16-version-control-for-data-science.jpg
+comments: true
 ---
 
 # Version control for data science projects
@@ -168,7 +169,9 @@ With this, you can access all the contents of your config file as `config.modelt
 
 In this article, I argued that data science projects differ from classical software projects, because there are more factors that can make them change. Specifically, these factors are code structure, algorithmic logic, and data. I sketched a useful structure for data science projects and illustrated how to use DVC to track different versions of such a project.
 
-I provide a cookiecutter template for a data science project at [igordertigor/templates](https://github.com/igordertigor/templates) on github.
+How do you perform version control for your data science project? Do you use anything else than git? Did this post motivate you to try out DVC? Do you know of a better tool for the same job? Please let me know in the comments.
+
+> I provide a cookiecutter template for a data science project at [igordertigor/templates](https://github.com/igordertigor/templates) on github.
 
 
 # References

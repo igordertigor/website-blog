@@ -9,6 +9,7 @@ tags:
   - Social Interaction
 authors: [ingo]
 cover_image: 2023-07-19-objectivity.jpg
+comments: true
 ---
 # Rethink objectivity!
 
@@ -44,5 +45,7 @@ The little data we take into account usually is further filtered by our senses&m
 Even if that data was objective, we would typically care about the conclusions we draw from this little data: Feline likes to help others, Carlo is reliable, Martha is angry, Tim is unfit for the job, but Tyron is not, …
 Pretending that any of these was true independent of my own perspective is false, but claiming that "Martha is objectively angry" or worse yet "Tim is objectively unfit for the job" is unfair for Martha and Tim and will also kill any discussion.
 Yet, good team work is fundamentally about discussion and killing that discussion by claiming objective truth will often hurt overall performance of the team.
+
+This is a fairly new kind of post for me&mdash;having a technical and a social side to it&mdash;how did you like that? Is this in interesting direction to think? Please let me know in the comments section!
 
 > The social dimension of the post was inspired by a chapter about "rational" argumentation in M. Amjahid's book "Der Weiße Fleck".

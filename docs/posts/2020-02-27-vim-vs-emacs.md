@@ -8,6 +8,7 @@ tags:
   - emacs
 authors: [ingo]
 cover_image: 2020-02-27-vim-vs-emacs.png
+comments: true
 ---
 # Vim vs. Emacs
 
@@ -32,3 +33,5 @@ When we think about how we want to edit a file, we typically think in terms of s
 Text objects can be thought of in a similar way, but without the movement. For example `aw` is the "outer word" text object, which means "the word under the cursor *and* the surrounding spaces" (`iw`, the inner word is without surrounding spaces). Although, I can't *move* by a text object, I can apply an action such as "delete" to a text object. For example, I can say `4daw` to apply (4) times the (d)elete action to the outer word (aw). Similarly, `4dis` deletes four sentences (specifically "inner sentences", leaving trailing spaces).
 
 There are text objects for stuff in single quotes, double quotes, parentheses, brackets, braces, function bodies, class definitions, html-tags, variable names, ... Using motions to move around and text objects to specify the target of an action skips that additional step of translating intention into character-by-character operations. And I believe *that* is what sets vim apart.
+
+Do you have experience using vim and or emacs? What features make your editor stand out? What is a neat idea that you feel you wouldn't want to miss? Let me know in the comments section!

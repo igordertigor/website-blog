@@ -8,6 +8,7 @@ tags:
 authors:
   - ingo
 cover_image: 2023-08-30-semantic-versioning-and-semv.jpg
+comments: true
 ---
 # Semantic versioning and semv
 
@@ -196,3 +197,5 @@ that semantic versioning is a versioning schema that compactly conveys the most
 important information about the changes that go along with a software release.
 I then introduced semv as a tool to automatically create version identifiers by
 parsing commit messages.
+
+Do you do semantic versioning in your own projects? Do you find it useful? Do you use any tooling for it? If so what are the tools you use? Do you think that the "no write" policy of semv is a good thing? Please let me know in the comments.

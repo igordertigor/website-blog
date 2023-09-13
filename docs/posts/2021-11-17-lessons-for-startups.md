@@ -5,6 +5,7 @@ categories: [Tech]
 tags: [Technology, Startups]
 authors: [ingo]
 cover_image: 2021-11-17-lessons-for-startups.jpg
+comments: true
 ---
 # Technology lessons for startups
 
@@ -165,3 +166,6 @@ The first is about [using dvc for dataset and model versioning as well as experi
 I described a number of technical steps that a startup team can take to accelerate their development process and thereby indirectly increasing their runway (was measured in product iterations).
 Specifically, I have emphasized the importance of APIs and a smooth deployment process and I have given some hints for how to make the deployment process smoother.
 Finally, I pointed out some considerations about data and machine learning architecture.
+
+
+Do you have experience setting up a technology framework for a startup? What are your experiences? Which points do you think matter most in this post? Where do you disagree? Please let me know all of these things in the comments section.

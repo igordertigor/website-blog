@@ -10,6 +10,7 @@ tags:
   - Scala
 authors: [ingo]
 cover_image: 2020-04-26-scala-python-cpp.jpg
+comments: true
 ---
 # Comparing scala, python and c++
 
@@ -73,3 +74,5 @@ Turns out, the disadvantages of scala didn't immediately come to me. Here are so
 Different programming languages have different strengths and weaknesses.
 Here I summarized some experiences that I had with Python, C++ and Scala.
 Scala is fairly new to me and I am positively surprised by it, but it certainly won't act as the [glue](https://www.python.org/doc/essays/omg-darpa-mcc-position/) that python is and it is more removed from low-level computing than C++.
+
+Did you do a similar comparison? How did you approach it? Maybe you are also thinking which programming language to learn in the first place. In that case, I would love to know if this post was useful for you. Please leave your comments below!

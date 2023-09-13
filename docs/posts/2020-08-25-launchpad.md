@@ -8,6 +8,7 @@ tags:
 authors: [ingo]
 date: 2020-08-25
 cover_image: 2020-08-25-launchpad.jpg
+comments: true
 ---
 # Launchpad Pro Mk3 with Bitwig on Linux
 
@@ -58,3 +59,5 @@ And with that, interaction with Bitwig also worked flawlessly.
 
 **UPDATE**: mmntmtrnstn has in the meantime pointed out that Novation has a [similar website](https://components.novationmusic.com/launchpad-pro-mk3/firmware) where you can do an official firmware update.
 I haven't tried Novation's firmware update and can't comment on it, but I'm confident that it will work too.
+
+Did you have a similar experience using a Launchpad pro with linux? How did it go? Was this post useful to get you started? Please let me know in the comments section.

@@ -8,6 +8,7 @@ tags:
 authors:
   - ingo
 cover_image: 2022-08-12-pragmatic-approach-to-testing.jpg
+comments: true
 ---
 # A pragmatic approach to software testing
 
@@ -127,3 +128,5 @@ My focus here was on static code analysis and high-level automatic tests.
 This isn't supposed to imply that there is no value in denser test coverage or that one shouldn't strive for higher test coverage.
 However, given the choice between features and tests, most companies will go for features.
 My attempt here is to point out somewhat of a minimum level of automatic testing that still supports the strong feature focus that is usually needed to get a software product off the ground.
+
+How do you approach testing in time pressured environments? What do you consider the main benefit of testing? Are there things that could still be dropped from this list? Or maybe things that I missed? Please let me know in the comments!

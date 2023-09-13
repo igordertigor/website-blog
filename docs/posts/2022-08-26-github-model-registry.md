@@ -10,6 +10,7 @@ tags:
 authors:
   - ingo
 cover_image: 2022-08-26-github-model-registry.jpg
+comments: true
 ---
 # Building a model registry in GitHub
 
@@ -156,3 +157,5 @@ This way, we are pretty free to build systems that rely on machine learning mode
 # Conclusion
 
 In this article, I highlighted the benefits of a central model registry and I described how to build such a model registry on top of a regular git repository. I further outlined some specific ways how GitHub features such as pull requests or actions can be used to ensure that models in the registry satisfy certain downstream requirements.
+
+Mlem is a very new set of tools. Have you used it yet? How did you find it? How do you think it compares to alternatives like MLFlow? Please let me know in the comments!
