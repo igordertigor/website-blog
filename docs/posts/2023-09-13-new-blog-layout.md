@@ -17,6 +17,8 @@ white layout from the previous blog, but still went with a generally more
 modern look and feel. In addition, the new and shiny blog provides a couple of
 new features that I feel are improvements.
 
+<!-- more -->
+
 ## Cover images
 
 As you can see at the top of this page, blog posts can now have a "cover
