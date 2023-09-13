@@ -4,7 +4,7 @@ date: 2023-09-13
 categories:
   - General
 authors: [ingo]
-cover_image: 2023-09-new-blog-layout.jpg
+cover_image: 2023-09-13-new-blog-layout.jpg
 comments: true
 ---
 
