@@ -16,10 +16,10 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install -r requirements.txt
+          pip install -r constraints.txt
 
       - name: Build 
-        run: doit build
+        run: mkdocs build
 
       - name: Upload
         uses: wangyucode/sftp-upload-action@v2.0.2
@@ -27,5 +27,5 @@ jobs:
           host: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_PASSWORD }}
-          localDir: 'output'
+          localDir: 'site'
           remoteDir: webseiten/main
