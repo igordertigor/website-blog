@@ -30,4 +30,4 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           port: 23
           uploads: |
-          site/ => /
+            site/ => /
