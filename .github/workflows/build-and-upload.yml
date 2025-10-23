@@ -24,6 +24,7 @@ jobs:
       - name: Upload
         uses: wangyucode/sftp-upload-action@v2.0.2
         with:
+          # Server as ftp.example.com
           host: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_PASSWORD }}
