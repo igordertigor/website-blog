@@ -28,4 +28,4 @@ jobs:
           username: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_PASSWORD }}
           localDir: 'site'
-          remoteDir: webseiten/main
+          remoteDir: /htdocs/ingofruend.net/
