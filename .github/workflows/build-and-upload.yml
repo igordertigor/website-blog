@@ -22,11 +22,12 @@ jobs:
         run: mkdocs build
 
       - name: Upload
-        uses: wangyucode/sftp-upload-action@v2.0.2
+        uses: Dylan700/sftp-upload-action@latest
         with:
           # Server as ftp.example.com
-          host: ${{ secrets.FTP_SERVER }}
+          server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_PASSWORD }}
-          localDir: 'site'
-          remoteDir: '/'
+          port: 23
+          uploads: |
+          site/ => /
